@@ -1,5 +1,8 @@
 import azure.functions as func
+app = func.FunctionApp()
 
+@app.function_name(name="http")
+@app.route(route="hello")
 def main(req: func.HttpRequest ) -> func.HttpResponse:
     response = False
     if (req.headers.get('X-Forwarded-For')):
